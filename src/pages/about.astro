@@ -1,8 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'About Me';
+
+const identity = {
+  firstName: "Bohe",
+  country: "China",
+  occupation: "Frontend Developer",
+  hobbies: ["摄影", "游戏", "睡觉", "看电影"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout title="Welcome to Astro Tutorial.">
+<Layout title={pageTitle}>
 	<header>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
@@ -10,8 +25,25 @@ import Layout from '../layouts/Layout.astro';
 	</header>
 	
 	<main>
-		<h1>About Me</h1>
-    <p>I'm studying the beginner tutorial of Astro. This is the second page on my website, and also the first page I build myself.</p>
-		<p>As I compelete more tutorial, the site will be updated, so please continue to check out how my journey will progress!</p>
+		<h1>{pageTitle}</h1>
+
+		<p>以下是关于我的几个事实：</p>
+		<ul>
+			<li>我的名字是{identity.firstName}.</li>
+			<li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+			{identity.hobbies.length >= 2 &&
+				<li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
+			}
+		</ul>
+		<p>我的技能是：</p>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+
+		{happy && <p>我非常乐意学习 Astro！</p>}
+
+		{finished && <p>我完成了这节教程！</p>}
+
+		{goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
 	</main>
 </Layout>

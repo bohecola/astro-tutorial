@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'Home';
 ---
 
-<Layout title="Welcome to Astro Tutorial.">
+<Layout title={pageTitle}>
 	<header>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
@@ -10,6 +12,6 @@ import Layout from '../layouts/Layout.astro';
 	</header>
 
 	<main>
-		<h1>Welcome to Astro 欢迎来到 Astro</h1>
+		<h1>{pageTitle}</h1>
 	</main>
 </Layout>

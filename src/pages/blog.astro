@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'Blog';
 ---
 
-<Layout title="Welcome to Astro Tutorial.">
+<Layout title={pageTitle}>
 	<header>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
@@ -10,6 +12,12 @@ import Layout from '../layouts/Layout.astro';
 	</header>
 	
 	<main>
-		<h1>Blog</h1>
+		<h1>{pageTitle}</h1>
+
+		<ul>
+      <li><a href="/posts/post-1/">文章 1</a></li>
+			<li><a href="/posts/post-2/">文章 2</a></li>
+      <li><a href="/posts/post-3/">文章 3</a></li>
+    </ul>
 	</main>
 </Layout>
