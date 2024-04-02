@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = 'Blog';
 ---
 
-<Layout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle}>
 	<ul>
 		<li><a href="/posts/post-1/">文章 1</a></li>
 		<li><a href="/posts/post-2/">文章 2</a></li>
 		<li><a href="/posts/post-3/">文章 3</a></li>
 	</ul>
-</Layout>
+</BaseLayout>
