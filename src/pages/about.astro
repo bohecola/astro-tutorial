@@ -21,7 +21,7 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<Layout title={pageTitle}>
+<Layout pageTitle={pageTitle}>
 	<style define:vars={{skillColor, fontWeight, textCase}}>
 		h1 {
 			color: purple;
@@ -34,26 +34,22 @@ const textCase = "uppercase";
 		}
 	</style>
 
-	<main>
-		<h1>{pageTitle}</h1>
+	<p>以下是关于我的几个事实：</p>
+	<ul>
+		<li>我的名字是{identity.firstName}.</li>
+		<li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+		{identity.hobbies.length >= 2 &&
+			<li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
+		}
+	</ul>
+	<p>我的技能是：</p>
+	<ul>
+		{skills.map((skill) => <li class="skill">{skill}</li>)}
+	</ul>
 
-		<p>以下是关于我的几个事实：</p>
-		<ul>
-			<li>我的名字是{identity.firstName}.</li>
-			<li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
-			{identity.hobbies.length >= 2 &&
-				<li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
-			}
-		</ul>
-		<p>我的技能是：</p>
-		<ul>
-			{skills.map((skill) => <li class="skill">{skill}</li>)}
-		</ul>
+	{happy && <p>我非常乐意学习 Astro！</p>}
 
-		{happy && <p>我非常乐意学习 Astro！</p>}
+	{finished && <p>我完成了这节教程！</p>}
 
-		{finished && <p>我完成了这节教程！</p>}
-
-		{goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
-	</main>
+	{goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
 </Layout>
